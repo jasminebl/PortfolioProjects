@@ -9,7 +9,7 @@ select location, case_date , total_cases, new_cases, total_deaths, population
 	order by 1,2
 	
 -- looking at the total cases vs total deaths
--- shows the linkely of dying if you contract covid in your country
+-- shows the likely of dying if you contract covid in your country
 
 select location, case_date, total_cases, total_deaths ,(total_deaths::decimal / total_cases)*100 as deathpercentage
 	from covid_deaths
