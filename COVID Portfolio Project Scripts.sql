@@ -113,17 +113,17 @@ select *, (rollingpeoplevaccinated::decimal/population)*100
 from PopvsVac
 
 --TEMP TABLE
-  --if needed to alter temp table use drop 
-DROP table if exists percentpopulationvaccinated
-create temporary table PercentPopulationVaccinated
-(
-Continent varchar(255),
-Location varchar(255),
-case_date timestamp,
-population bigint, 
-new_vaccinations int,
-rollingpeoplevaccinated int
-);	
+--if needed to alter temp table use drop 
+	DROP table if exists percentpopulationvaccinated
+	create temporary table PercentPopulationVaccinated
+	(
+	Continent varchar(255),
+	Location varchar(255),
+	case_date timestamp,
+	population bigint, 
+	new_vaccinations int,
+	rollingpeoplevaccinated int
+	);	
 	
 insert into PercentPopulationVaccinated (continent, location, case_date, population, new_vaccinations, rollingpeoplevaccinated)
 select dea.continent, dea.location, dea.case_date, dea.population, vac.new_vaccinations
