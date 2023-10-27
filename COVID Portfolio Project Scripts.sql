@@ -1,3 +1,112 @@
+-- Table creation for dataset in Postgresql 
+
+create table covid_deaths (
+	  iso_code varchar (255)
+	, continent varchar (255)
+	, location varchar (255)
+	, case_date DATE
+	, total_cases int 
+	, new_cases int
+	, new_cases_smoothed decimal 
+	, total_deaths int
+	, new_deaths int
+	, new_deaths_smoothed decimal
+	, total_cases_per_million decimal
+	, new_cases_per_million decimal
+	, new_cases_smoothed_per_million decimal
+	, total_deaths_per_million decimal
+	, new_deaths_per_million decimal
+	, new_deaths_smoothed_per_million decimal
+	, reproduction_rate decimal
+	, icu_patients decimal
+	, icu_patients_per_million decimal
+	, hosp_patients int
+	, hosp_patients_per_million decimal
+	, weekly_icu_admissions decimal
+	, weekly_icu_admissions_per_million decimal
+	, weekly_hosp_admissions decimal
+	, weekly_hosp_admissions_per_million decimal
+	, new_tests int
+	, total_tests int
+	, total_tests_per_thousand decimal
+	, new_tests_per_thousand decimal
+	, new_tests_smoothed int
+	, new_tests_smoothed_per_thousand decimal
+	, positive_rate decimal
+	, tests_per_case decimal
+	, tests_units varchar (255)
+	, total_vaccinations int
+	, people_vaccinated int
+	, people_fully_vaccinated int
+	, new_vaccinations int
+	, new_vaccinations_smoothed int
+	, total_vaccinations_per_hundred decimal
+	, people_vaccinated_per_hundred decimal
+	, people_fully_vaccinated_per_hundred decimal
+	, new_vaccinations_smoothed_per_million int
+	, stringency_index decimal
+	, population bigint
+	, population_density decimal
+	, median_age decimal
+	, aged_65_older decimal
+	, aged_70_older decimal
+	, gdp_per_capita decimal
+	, extreme_poverty decimal
+	, cardiovasc_death_rate decimal
+	, diabetes_prevalence decimal
+	, female_smokers decimal
+	, male_smokers decimal
+	, handwashing_facilities decimal
+	, hospital_beds_per_thousand decimal
+	, life_expectancy decimal 
+	, human_development_index decimal
+);
+
+
+create table covid_vaccinations (
+	 iso_code varchar (255)
+	, continent varchar (255)
+	, location varchar (255)
+	, case_date DATE
+	, new_tests int
+	, total_tests int 
+	, total_tests_per_thousand decimal 
+	, new_tests_per_thousand decimal
+	, new_tests_smoothed int
+	, new_tests_smoothed_per_thousand decimal
+	, positive_rate decimal
+	, tests_per_case decimal
+	, tests_units varchar (255)
+	, total_vaccinations int
+	, people_vaccinated int
+	, people_fully_vaccinated int
+	, new_vaccinations int
+	, new_vaccinations_smoothed int
+	, total_vaccinations_per_hundred decimal
+	, people_vaccinated_per_hundred decimal
+	, people_fully_vaccinated_per_hundred decimal
+	, new_vaccinations_smoothed_per_million int
+	, stringency_index decimal
+	, population_density decimal
+	, median_age decimal
+	, aged_65_older decimal
+	, aged_70_older decimal
+	, gdp_per_capita decimal
+	, extreme_poverty decimal
+	, cardiovasc_death_rate decimal
+	, diabetes_prevalence decimal
+	, female_smokers decimal
+	, male_smokers decimal
+	, handwashing_facilities decimal
+	, hospital_beds_per_thousand decimal
+	, life_expectancy decimal
+	, human_development_index	decimal
+);
+
+
+
+
+
 select * 
 from covid_deaths
 where continent is not null
