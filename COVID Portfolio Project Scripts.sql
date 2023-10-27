@@ -100,7 +100,7 @@ create table covid_vaccinations (
 	, handwashing_facilities decimal
 	, hospital_beds_per_thousand decimal
 	, life_expectancy decimal
-	, human_development_index	decimal
+	, human_development_index decimal
 );
 
 
