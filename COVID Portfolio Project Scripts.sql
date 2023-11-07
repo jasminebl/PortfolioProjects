@@ -266,3 +266,37 @@ select dea.continent, dea.location, dea.case_date, dea.population, vac.new_vacci
 	
 select * from 
 PercentPopulationVaccinated
+
+-- Percentof deaths after vaccination
+
+select dea.continent, dea.location, dea.case_date, dea.population, vac.people_vaccinated, dea.total_deaths
+, SUM(vac.people_vaccinated) OVER (Partition by dea.location Order by dea.location, dea.case_date) 
+	as totalrollingpeoplevaccinated
+--,(totalrollingpeoplevaccinated/total_deaths)*100	
+	from covid_deaths dea
+	join covid_vaccinations vac
+		on dea.location = vac.location
+		and dea.case_date = vac.case_date
+		where dea.continent is not null 
+		order by 2,3
+
+--USE CTE
+with peoplevaccinatedvstotaldeaths (continent, location, date, population, totalrollingpeoplevaccinated, total_deaths, people_vaccinated)
+as
+ (select dea.continent, dea.location, dea.case_date, dea.population, vac.people_vaccinated, dea.total_deaths
+, SUM(vac.people_vaccinated) OVER (Partition by dea.location Order by dea.location, dea.case_date) 
+	as totalrollingpeoplevaccinated
+--,(totalrollingpeoplevaccinated/total_deaths)*100	
+	from covid_deaths dea
+	join covid_vaccinations vac
+		on dea.location = vac.location
+		and dea.case_date = vac.case_date
+		where dea.continent is not null
+	 	--order by 2,3
+)
+select *, (total_deaths - totalrollingpeoplevaccinated)::decimal / total_deaths * 100 as vac_death_percentage
+from peoplevaccinatedvstotaldeaths
+
+select case_date, location, aged_65_older 
+from covid_deaths
+
