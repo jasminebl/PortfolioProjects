@@ -162,13 +162,13 @@ WITH RowNumCTE AS(
 select *, 
 	row_number() over (
 	partition by parcelid,
-				propertyaddress,
-				saleprice,
-		        saledate,
-		        legalreference
-		        order by
-					uniqueid
-					) row_number
+		 propertyaddress,
+		 saleprice,
+		 saledate,
+		 legalreference
+		  order by
+		  uniqueid
+		  ) row_number
 		
 from nashville_housing_data
 order by parcelid
