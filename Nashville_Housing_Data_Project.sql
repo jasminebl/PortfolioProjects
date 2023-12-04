@@ -36,9 +36,6 @@ select * from nashville_housing_data
 select saledate 
 from nashville_housing_data
 
--- Raw data has, date in date/time format. Setting the table code as date allowed for it be corrected before hand. 
-
-
 --Populate Property Address data
 
 select *
