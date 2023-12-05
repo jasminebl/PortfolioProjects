@@ -152,8 +152,6 @@ set soldasvacant = CASE When soldasvacant = 'Y' Then 'Yes'
 
 
 --Remove Duplicates 
- --(Not standard practice to delete data, for project purposes only)
-
 
 WITH RowNumCTE AS(
 select *, 
